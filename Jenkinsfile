@@ -20,5 +20,15 @@ pipeline {
                 sh 'java -jar target/jenkins-app.jar'
             }
         }
+        def remote = [:]
+            remote.name = 'test'
+            remote.host = '192.168.31.20'
+            remote.user = 'root'
+            remote.password = 'root'
+            remote.allowAnyHosts = true
+        stage('启动应用') {
+            sshPut remote: remote, from: 'target/jenkins-app.jar', into: '/root/app'
+            sshCommand remote: remote, command: "nohup java -jar target/jenkins-app.jar&"
+        }
     }
 }
