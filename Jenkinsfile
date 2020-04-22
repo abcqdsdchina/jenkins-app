@@ -1,6 +1,7 @@
 pipeline {
     agent any
     tools {
+        jdk 'jdk8'
         maven 'maven'
     }
     stages {
@@ -12,6 +13,11 @@ pipeline {
         stage('打包代码') {
             steps {
                 sh 'mvn clean package'
+            }
+        }
+        stage('启动应用') {
+            steps {
+                sh 'java -jar target/jenkins-app.jar'
             }
         }
     }
