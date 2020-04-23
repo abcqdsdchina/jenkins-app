@@ -25,7 +25,7 @@ pipeline {
                                 remote.host = '192.168.31.21'
                                 remote.user = 'root'
                                 remote.password = 'root'
-                                remote.allowAnyHosts = true,
+                                remote.allowAnyHosts = true
                                 remote.keepAliveSec = 6000
                             sshPut remote: remote, from: 'target/jenkins-app.jar', into: '/root/app'
                         } catch (e) {}
