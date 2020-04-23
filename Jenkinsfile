@@ -18,7 +18,7 @@ pipeline {
         stage('发布应用') {
             steps {
                 script {
-                    timeout(60) {
+                    timeout(600) {
                         try {
                             def remote = [:]
                                 remote.name = 'test'
