@@ -21,12 +21,13 @@ pipeline {
                     timeout(600) {
                         try {
                             def remote = [:]
-                                remote.name = 'test'
+                                remote.name = '192.168.31.21'
                                 remote.host = '192.168.31.21'
                                 remote.user = 'root'
                                 remote.password = 'root'
-                                remote.allowAnyHosts = true
-                            sshPut remote: remote, from: 'target', into: '/root/app'
+                                remote.allowAnyHosts = true,
+                                remote.keepAliveSec = 6000
+                            sshPut remote: remote, from: 'target/jenkins-app.jar', into: '/root/app'
                         } catch (e) {}
                     }
                 }
@@ -36,12 +37,12 @@ pipeline {
             steps {
                 script {
                     def remote = [:]
-                        remote.name = 'test'
+                        remote.name = '192.168.31.21'
                         remote.host = '192.168.31.21'
                         remote.user = 'root'
                         remote.password = 'root'
                         remote.allowAnyHosts = true
-                    sshCommand remote: remote, command: "java -jar /root/app/target/jenkins-app.jar &"
+                    sshCommand remote: remote, command: "java -jar /root/app/jenkins-app.jar &"
                 }
             }
         }
