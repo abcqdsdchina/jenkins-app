@@ -39,7 +39,7 @@ pipeline {
                         remote.user = 'root'
                         remote.password = 'root'
                         remote.allowAnyHosts = true
-                    sshCommand remote: remote, command: "nohup java -jar /root/app/jenkins-app.jar&"
+                    sshCommand remote: remote, command: "java -jar /root/app/jenkins-app.jar"
                 }
             }
         }
