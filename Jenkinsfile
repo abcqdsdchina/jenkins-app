@@ -18,13 +18,15 @@ pipeline {
         stage('发布应用') {
             steps {
                 script {
-                    def remote = [:]
-                        remote.name = 'test'
-                        remote.host = '192.168.31.21'
-                        remote.user = 'root'
-                        remote.password = 'root'
-                        remote.allowAnyHosts = true
-                    sshPut remote: remote, from: 'target/jenkins-app.jar', into: '/root/app'
+                    try {
+                        def remote = [:]
+                            remote.name = 'test'
+                            remote.host = '192.168.31.21'
+                            remote.user = 'root'
+                            remote.password = 'root'
+                            remote.allowAnyHosts = true
+                        sshPut remote: remote, from: 'target/jenkins-app.jar', into: '/root/app'
+                    } catch (e) {}
                 }
             }
         }
