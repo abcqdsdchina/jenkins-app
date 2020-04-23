@@ -27,6 +27,7 @@ pipeline {
                                 remote.password = 'root'
                                 remote.allowAnyHosts = true
                                 remote.keepAliveSec = 6000
+                                remote.fileTransfer = SCP
                             sshPut remote: remote, from: 'target/jenkins-app.jar', into: '/root/app'
                         } catch (e) {}
                     }
