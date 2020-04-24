@@ -12,7 +12,7 @@ pipeline {
         }
         stage('打包代码') {
             steps {
-                sh 'mvn clean package deploy'
+                sh 'mvn clean package wagon:upload-single'
             }
         }
         stage('启动应用') {
