@@ -19,8 +19,8 @@ pipeline {
             steps {
                 script {
                     def remote = [:]
-                        remote.name = '192.168.31.21'
-                        remote.host = '192.168.31.21'
+                        remote.name = '192.168.31.20'
+                        remote.host = '192.168.31.20'
                         remote.user = 'root'
                         remote.password = 'root'
                         remote.allowAnyHosts = true
@@ -34,8 +34,8 @@ pipeline {
             steps {
                 script {
                     def remote = [:]
-                        remote.name = '192.168.31.21'
-                        remote.host = '192.168.31.21'
+                        remote.name = '192.168.31.20'
+                        remote.host = '192.168.31.20'
                         remote.user = 'root'
                         remote.password = 'root'
                         remote.allowAnyHosts = true
