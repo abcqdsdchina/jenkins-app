@@ -12,20 +12,7 @@ pipeline {
         }
         stage('打包代码') {
             steps {
-                sh 'mvn clean package'
-            }
-        }
-        stage('发布应用') {
-            steps {
-                script {
-                    def remote = [:]
-                        remote.name = '192.168.31.20'
-                        remote.host = '192.168.31.20'
-                        remote.user = 'root'
-                        remote.password = 'root'
-                        remote.allowAnyHosts = true
-                    sshPut remote: remote, from: 'target/jenkins-app.jar', into: '/root/app'
-                }
+                sh 'mvn clean package deploy'
             }
         }
         stage('启动应用') {
