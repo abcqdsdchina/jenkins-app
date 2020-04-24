@@ -10,21 +10,9 @@ pipeline {
                 git 'https://github.com/abcqdsdchina/jenkins-app.git'
             }
         }
-        stage('连接远程节点') {
-            steps {
-                script {
-                    def remote = [:]
-                        remote.name = '192.168.31.21'
-                        remote.host = '192.168.31.21'
-                        remote.user = 'root'
-                        remote.password = 'root'
-                    sshCommand remote: remote, command: "echo hello"
-                }
-            }
-        }
         stage('打包代码') {
             steps {
-                sh 'mvn clean package wagon:upload-single'
+                sh 'mvn -B clean package wagon:upload-single'
             }
         }
         stage('启动应用') {
