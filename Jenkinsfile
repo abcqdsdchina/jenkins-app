@@ -10,7 +10,7 @@ pipeline {
                 git 'https://github.com/abcqdsdchina/jenkins-app.git'
             }
         }
-        stage('启动应用') {
+        stage('连接远程节点') {
             steps {
                 script {
                     def remote = [:]
