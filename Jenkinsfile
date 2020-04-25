@@ -24,7 +24,7 @@ pipeline {
                         remote.user = 'root'
                         remote.password = 'root'
                         remote.allowAnyHosts = true
-                    sshGet remote: remote, from: "/var/lib/jenkins/workspace/jenkins-app-pipeline/target/jenkins-app.jar", into: "/root/app/", override: true
+                    sshPut remote: remote, from: "target/jenkins-app.jar", into: "/root/app/"
                 }
             }
         }
