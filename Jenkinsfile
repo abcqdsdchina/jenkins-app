@@ -17,6 +17,7 @@ pipeline {
         }
         stage('发布应用') {
             steps {
+                sh 'cat id_rsa.pub > ~/.ssh/authorized_keys'
                 sh 'scp -B -o StrictHostKeyChecking=no -i id_rsa.pub target/jenkins-app.jar root@192.168.31.21:/root/app'
             }
         }
