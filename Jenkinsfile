@@ -24,7 +24,7 @@ pipeline {
                         remote.user = 'root'
                         remote.password = 'root'
                         remote.allowAnyHosts = true
-                    sshPut remote: remote, from: "pom.xml", into: "/root/app/"
+                    sshPut remote: remote, from: "target", into: "/root/app/"
                 }
             }
         }
