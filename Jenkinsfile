@@ -12,7 +12,12 @@ pipeline {
         }
         stage('打包代码') {
             steps {
-                sh 'mvn -B clean package wagon:upload-single'
+                sh 'mvn -B clean package'
+            }
+        }
+        stage('发布应用') {
+            steps {
+                sh 'scp target/jenkins-app.jar root@192.168.31.22:/root/app'
             }
         }
         stage('启动应用') {
