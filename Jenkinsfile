@@ -5,17 +5,17 @@ pipeline {
         maven 'maven'
     }
     stages {
-        stage('pull') {
+        stage('拉取代码') {
             steps {
                 git 'https://github.com/abcqdsdchina/jenkins-app.git'
             }
         }
-        stage('package') {
+        stage('打包应用') {
             steps {
                 sh 'mvn -B clean package'
             }
         }
-        stage('publish') {
+        stage('发布应用') {
             steps {
                 script {
                     def remote = [:]
