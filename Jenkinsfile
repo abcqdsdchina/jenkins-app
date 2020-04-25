@@ -17,8 +17,15 @@ pipeline {
         }
         stage('发布应用') {
             steps {
-                sh 'cat id_rsa.pub > ~/.ssh/authorized_keys'
-                sh 'scp -B -o StrictHostKeyChecking=no -i id_rsa.pub target/jenkins-app.jar root@192.168.31.21:/root/app'
+                script {
+                    def remote = [:]
+                        remote.name = '192.168.31.20'
+                        remote.host = '192.168.31.20'
+                        remote.user = 'root'
+                        remote.password = 'root'
+                        remote.allowAnyHosts = true
+                    sshGet remote: remote, from: "target/jenkins-app.jar", into: "/root/app/", override: true
+                }
             }
         }
         stage('启动应用') {
