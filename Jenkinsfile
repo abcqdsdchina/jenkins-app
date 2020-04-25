@@ -24,7 +24,7 @@ pipeline {
                         remote.user = 'root'
                         remote.password = 'root'
                         remote.allowAnyHosts = true
-                    sshPut remote: remote, from: "target/jenkins-app.jar", into: "/root/app/", dryRun: true
+                    sshPut remote: remote, from: "target/jenkins-app.jar", into: "/root/app/"
                 }
             }
         }
