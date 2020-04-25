@@ -17,7 +17,7 @@ pipeline {
         }
         stage('发布应用') {
             steps {
-                sh 'scp target/jenkins-app.jar root@192.168.31.21:/root/app'
+                sh 'scp -o StrictHostKeyChecking=no target/jenkins-app.jar root@192.168.31.21:/root/app'
             }
         }
         stage('启动应用') {
