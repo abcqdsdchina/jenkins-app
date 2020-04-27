@@ -10,9 +10,9 @@ pipeline {
                 git 'https://github.com/abcqdsdchina/jenkins-app.git'
             }
         }
-        stage('打包代码') {
+        stage('打包应用') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn -B clean package'
             }
         }
         stage('发布应用') {
@@ -24,23 +24,7 @@ pipeline {
                         remote.user = 'root'
                         remote.password = 'root'
                         remote.allowAnyHosts = true
-                        remote.keepAliveSec = 6000
-                        remote.pty = true
-                        remote.fileTransfer = "SCP"
-                    sshPut remote: remote, from: 'target/jenkins-app.jar', into: '/root/app'
-                }
-            }
-        }
-        stage('启动应用') {
-            steps {
-                script {
-                    def remote = [:]
-                        remote.name = '192.168.31.21'
-                        remote.host = '192.168.31.21'
-                        remote.user = 'root'
-                        remote.password = 'root'
-                        remote.allowAnyHosts = true
-                    sshCommand remote: remote, command: "java -jar /root/app/jenkins-app.jar &"
+                    sshPut remote: remote, from: "target/jenkins-app.jar", into: "/root/app/"
                 }
             }
         }
