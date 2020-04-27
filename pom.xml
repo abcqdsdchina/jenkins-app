@@ -149,8 +149,6 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>3.0.0-M1</version>
                 <configuration>
-                    <username>abcqdsdchina@126.com</username>
-                    <password>aa3sd#gk</password>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
