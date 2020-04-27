@@ -13,8 +13,8 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/abcqdsdchina/jenkins-app</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <repositories>
         <repository>
