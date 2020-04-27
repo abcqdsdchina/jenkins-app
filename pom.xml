@@ -5,7 +5,7 @@
 
     <groupId>club.avence.spring.boot</groupId>
     <artifactId>jenkins-app</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>jenkins-app</name>
@@ -13,7 +13,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/abcqdsdchina/jenkins-app</developerConnection>
-        <tag>HEAD</tag>
+        <tag>v1.0.1</tag>
     </scm>
 
     <repositories>
